@@ -1,0 +1,105 @@
+/* Container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  /* Form styling */
+  form {
+    background-color: #ffffff; /* White background for the form */
+    border: 1px solid #e2e8f0; /* Light border */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 2rem;
+    margin-bottom: 2rem; /* Space below the form */
+  }
+  
+  /* Form group styling */
+  .form-group {
+    margin-bottom: 1rem; /* Space below each form group */
+  }
+  
+  /* Label styling */
+  label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333; /* Dark text color */
+  }
+  
+  /* Input field styling */
+  .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #d1d5db; /* Light gray border */
+    border-radius: 0.375rem; /* Slightly rounded corners */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); /* Inset shadow */
+    outline: none;
+  }
+  
+  .form-control:focus {
+    border-color: #4a90e2; /* Highlight border color on focus */
+    box-shadow: 0 0 0 1px #4a90e2; /* Add outline on focus */
+  }
+  
+  /* Error message styling */
+  .text-danger {
+    color: #e53e3e; /* Red color for error messages */
+    font-size: 0.875rem; /* Smaller font size for error messages */
+    margin-top: 0.25rem; /* Space above the error message */
+  }
+  
+  /* Button styling */
+  .btn-primary {
+    background-color: #4a90e2; /* Primary button color */
+    color: #ffffff; /* Text color */
+    border: none;
+    border-radius: 0.375rem; /* Rounded corners */
+    padding: 0.75rem 1.5rem; /* Padding for the button */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #357abd; /* Darker color on hover */
+  }
+  
+  .btn-primary:disabled {
+    background-color: #d1d5db; /* Disabled button color */
+    cursor: not-allowed;
+  }
+  
+  /* Photos container styling */
+  .photos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Space between photos */
+  }
+  
+  /* Photo styling */
+  .photo {
+    width: 100%;
+    max-width: 300px; /* Max width for each photo */
+    border: 1px solid #e2e8f0; /* Light border */
+    border-radius: 0.375rem; /* Rounded corners */
+    overflow: hidden;
+    text-align: center;
+    background-color: #ffffff; /* White background for each photo */
+  }
+  
+  .photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .photo p {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    color: #555; /* Darker gray text color */
+  }
+  

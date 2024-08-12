@@ -1,0 +1,107 @@
+<!-- main.component.html -->
+<div class="container mx-auto mt-8">
+  <h1 class="text-3xl font-bold text-center mb-6">
+    Reactive Form with Validation in Simplest Way
+  </h1>
+  <form
+    [formGroup]="feedbackForm"
+    (ngSubmit)="feedbackForm.status !== 'INVALID' && Submit()"
+    class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md"
+  >
+    <div class="mb-4">
+      <label for="fullName" class="block text-gray-700 font-bold mb-2"
+        >Full Name</label
+      >
+      <input
+        type="text"
+        class="form-control block w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        id="fullName"
+        placeholder="Full Name"
+        formControlName="fullName"
+        [ngClass]="{
+          'border-red-500':
+            getControl().fullName.errors && getControl().fullName.touched
+        }"
+      />
+      <div
+        *ngIf="getControl().fullName.errors && getControl().fullName.touched"
+        class="mt-1 text-red-500 text-sm"
+      >
+        <small *ngIf="getControl().fullName.errors?.['required']">
+          Full Name is required
+        </small>
+        <small *ngIf="getControl().fullName.errors?.['minlength']">
+          Please enter more than two letters in name
+        </small>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="email" class="block text-gray-700 font-bold mb-2"
+        >Email</label
+      >
+      <input
+        type="email"
+        class="form-control block w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        id="email"
+        placeholder="Email"
+        formControlName="email"
+        [ngClass]="{
+          'border-red-500':
+            getControl().email.errors && getControl().email.touched
+        }"
+      />
+      <div
+        *ngIf="getControl().email.errors && getControl().email.touched"
+        class="mt-1 text-red-500 text-sm"
+      >
+        <small *ngIf="getControl().email.errors?.['required']">
+          Email is required
+        </small>
+        <small *ngIf="getControl().email.errors?.['pattern']">
+          Please enter a valid email.
+        </small>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="feedback" class="block text-gray-700 font-bold mb-2"
+        >Feedback</label
+      >
+      <textarea
+        name="feedback"
+        id="feedback"
+        class="form-control block w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Feedback"
+        formControlName="feedback"
+        [ngClass]="{
+          'border-red-500':
+            getControl().feedback.errors && getControl().feedback.touched
+        }"
+      ></textarea>
+      <div
+        *ngIf="getControl().feedback.errors && getControl().feedback.touched"
+        class="mt-1 text-red-500 text-sm"
+      >
+        <small *ngIf="getControl().feedback.errors?.['required']">
+          Feedback is required
+        </small>
+        <small *ngIf="getControl().feedback.errors?.['pattern']">
+          Please enter valid feedback.
+        </small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <input
+        type="submit"
+        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full"
+        [disabled]="feedbackForm.status === 'INVALID'"
+      />
+    </div>
+  </form>
+  <app-modal
+    [isVisible]="isModalVisible"
+    (onClose)="handleModalClose()"
+  ></app-modal>
+</div>

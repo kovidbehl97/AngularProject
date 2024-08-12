@@ -1,0 +1,26 @@
+<div class="container">
+  <form [formGroup]="apiForm" (ngSubmit)="fetchData()">
+    <div class="form-group">
+      <label for="query">Search Query:</label>
+      <input
+        type="text"
+        id="query"
+        formControlName="query"
+        class="form-control"
+      />
+      <div *ngIf="getControl().query.invalid && getControl().query.touched">
+        <small class="text-danger">Query is required and must be at least 2 characters long.</small>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="apiForm.invalid">
+      Search
+    </button>
+  </form>
+
+  <div class="photos-container" *ngIf="photos.length > 0">
+    <div class="photo" *ngFor="let photo of photos">
+      <img [src]="photo.urls.small" [alt]="photo.alt_description" />
+      <p>{{ photo.description || 'No description available' }}</p>
+    </div>
+  </div>
+</div>
